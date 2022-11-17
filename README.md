@@ -5,7 +5,7 @@
 1. `git clone https://github.com/ayushrajdahal/videoapp`
 2. `cd videoapp`
 3. `pip install -r requirements.txt`.
-4. `python3 videoproject.py` or `uvicorn videoproject:app --reload`
+4. `python3 main.py` or `uvicorn main:app --reload`
 
 **API Endpoints:**
 
