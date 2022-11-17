@@ -1,16 +1,17 @@
 ## File Storage Backend made using Fast API
 
-Instructions to run this on your computer:
+To run this project on your computer:
 
 1. `git clone https://github.com/ayushrajdahal/videoapp`
-2. `pip install -r requirements.txt`.
-3. `python3 videoproject.py` or `uvicorn videoproject:app --reload`
+2. `cd videoapp`
+3. `pip install -r requirements.txt`.
+4. `python3 videoproject.py` or `uvicorn videoproject:app --reload`
 
 **API Endpoints:**
 
 1. `/upload-video` recieves and validates the video file
 
-2. `/list-videos` lists videos that satisfy the conditions passed (all are optional)
+2. `/list-videos` lists videos that satisfy these conditions (all are optional):
     - **minLength:** minimum video length in seconds
     - **maxLength:** maximum video length in seconds
     - **dateFrom:** earliest date in 'YYYY-MM-DD'
