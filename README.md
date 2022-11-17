@@ -7,7 +7,8 @@
 3. `pip install -r requirements.txt`.
 4. `python3 main.py` or `uvicorn main:app --reload`
 
-**File Organization**
+**File Structure**
+
 ```
 videoapp
 ├── main.py             # main script
