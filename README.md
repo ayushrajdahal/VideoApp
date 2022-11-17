@@ -7,6 +7,17 @@
 3. `pip install -r requirements.txt`.
 4. `python3 main.py` or `uvicorn main:app --reload`
 
+**File Organization**
+```
+videoapp
+├── main.py             # main script
+├── dependencies.py     # contains fastapi dependencies
+└── video_operations    # contains all the video operations
+    └── upload.py       # contains /upload-video endpoint
+    ├── listvid.py      # contains /list-videos endpoint
+    ├── calculate.py    # contains /calculate-charges endpoint
+    ├── stream.py       # contains /stream-video endpoint
+```
 **API Endpoints:**
 
 1. `/upload-video` recieves and validates the video file
