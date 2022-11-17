@@ -11,7 +11,7 @@
 
 1. `/upload-video` recieves and validates the video file
 
-2. `/list-videos` lists videos being uploaded after applying these optional filters:
+2. `/list-videos` lists videos being uploaded after applying these optional filters via request body (POST method):
     - **minLength:** minimum video length in seconds
     - **maxLength:** maximum video length in seconds
     - **dateFrom:** earliest date in 'YYYY-MM-DD'
