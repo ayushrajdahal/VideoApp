@@ -1,6 +1,6 @@
 ## File Storage Backend made using Fast API
 
-To run this project on your computer:
+**To run this app, type the following commands on your terminal:**
 
 1. `git clone https://github.com/ayushrajdahal/videoapp`
 2. `cd videoapp`
@@ -11,7 +11,7 @@ To run this project on your computer:
 
 1. `/upload-video` recieves and validates the video file
 
-2. `/list-videos` lists videos that satisfy these conditions (all are optional):
+2. `/list-videos` lists videos being uploaded after applying these optional filters:
     - **minLength:** minimum video length in seconds
     - **maxLength:** maximum video length in seconds
     - **dateFrom:** earliest date in 'YYYY-MM-DD'
@@ -19,6 +19,6 @@ To run this project on your computer:
 
 3. `/calculate-charges` calculates total charge, given the video size, length, and file type via Query Parameters
 
-4. `/stream-video` streams stored video, given the filename as an input
+4. `/stream-video` streams stored video, given the filename as an input (both with and without the file extension)
 
 To access the API Documentation page, go to http://127.0.0.1:5000/docs
