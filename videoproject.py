@@ -23,6 +23,9 @@ class ListConditions(BaseModel):                # for list_videos endpoint
 async def valid_content_length(content_length: int = Header(..., lt=1_000_000_001)): # only allows file upload of upto 1 GB
     return content_length
 
+if not os.path.exists('./static'):              # here's where the videos get stored
+    os.mkdir('static')
+
 
 
 
@@ -74,19 +77,19 @@ def list_videos(conds:ListConditions):          # for listing all videos that sa
 @app.get('/calculate-charges')
 def calculate_charge(vid_size:int, length:float, filetype:str):
     
-    # validation
+    # file validation
 
     if filetype.lower() not in ('mkv', 'mp4'):
         raise HTTPException(415, detail='Invalid File Type')
 
-    if vid_size>1e9:        # raises an error if size > 1 GB
+    if vid_size>1e9:            # raises an error if size > 1 GB
         raise HTTPException(413, detail="file too large")
 
     # charge calculation
 
     totalcharge = 0
     
-    if vid_size <= 500_000_000: #charges $5 for <= 500MB, $12.5 for more
+    if vid_size <= 500_000_000: # charges $5 for <= 500MB, $12.5 for more
         totalcharge+=5
     else:
         totalcharge+=12.5
