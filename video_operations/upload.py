@@ -8,7 +8,7 @@ router = APIRouter()
 files = []
 
 @router.post("/upload-video/", dependencies=[Depends(valid_content_length)])
-def create_file(file: UploadFile = File(...)):
+def upload_video(file: UploadFile = File(...)):
 
     if file.filename.split('.')[1] not in ('mkv', 'mp4'):       # file type check
         raise HTTPException(415, detail='Invalid File Type')
@@ -21,8 +21,8 @@ def create_file(file: UploadFile = File(...)):
     shutil.copyfileobj(file_object, upload_folder)
     upload_folder.close()
     
-
-    cap = cv2.VideoCapture(videopath, cv2.CAP_FFMPEG)    # gets video duration using OpenCV
+    # getting the duration of input video
+    cap = cv2.VideoCapture(videopath, cv2.CAP_FFMPEG)
     fps = cap.get(cv2.CAP_PROP_FPS)
     frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     duration = frame_count/fps
