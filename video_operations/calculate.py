@@ -1,28 +1,35 @@
 from fastapi import HTTPException, APIRouter
+from pydantic import BaseModel
+
 
 router = APIRouter()
 
-@router.get('/calculate-charges')
-def calculate_charge(vid_size:int, length:float, filetype:str):
+class CalculateInputs(BaseModel):
+    vidsize:int
+    vidlength:float
+    vidtype:str
+
+@router.post('/calculate-charges')
+def calculate_charge(calcinput:CalculateInputs):
     
     # file validation
 
-    if filetype.lower() not in ('mkv', 'mp4'):
+    if calcinput.vidtype.lower() not in ('mkv', 'mp4'):
         raise HTTPException(415, detail='Invalid File Type')
 
-    if vid_size>1e9:            # raises an error if size > 1 GB
+    if calcinput.vidsize>1e9:            # raises an error if size > 1 GB
         raise HTTPException(413, detail="file too large")
 
     # charge calculation
 
     totalcharge = 0
     
-    if vid_size <= 500_000_000: # charges $5 for <= 500MB, $12.5 for more
+    if calcinput.vidsize <= 500_000_000: # charges $5 for <= 500MB, $12.5 for more
         totalcharge+=5
     else:
         totalcharge+=12.5
     
-    if length <= 6*60 + 18:     # charges additional $12.5 for <= 6m 18s, $20 for more
+    if calcinput.vidlength <= 6*60 + 18:     # charges additional $12.5 for <= 6m 18s, $20 for more
         totalcharge += 12.5
     else:
         totalcharge += 20
