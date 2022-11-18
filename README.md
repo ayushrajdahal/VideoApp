@@ -7,6 +7,8 @@
 3. `pip install -r requirements.txt`.
 4. `python3 main.py` or `uvicorn main:app --reload`
 
+To access the API Documentation page, go to http://127.0.0.1:5000/docs
+
 **File Structure**
 
 ```
@@ -32,5 +34,3 @@ videoapp
 3. `/calculate-charges` calculates total charge, given the video size, length, and file type via Query Parameters
 
 4. `/stream-video` streams stored video, given the filename as an input (both with and without the file extension)
-
-To access the API Documentation page, go to http://127.0.0.1:5000/docs
