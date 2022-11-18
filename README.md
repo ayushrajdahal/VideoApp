@@ -1,4 +1,4 @@
-## File Storage Backend made using Fast API
+## Basic Video Storage Backend made using Fast API
 
 **To run this app, type the following commands on your terminal:**
 
@@ -12,12 +12,12 @@
 ```
 videoapp
 ├── main.py             # main script
-├── dependencies.py     # contains fastapi dependencies
-└── video_operations    # contains all the video operations
-    └── upload.py       # contains /upload-video endpoint
+├── dependencies.py     # dependencies used in the project
+└── video_operations
+    ├── upload.py       # contains /upload-video endpoint
     ├── listvid.py      # contains /list-videos endpoint
     ├── calculate.py    # contains /calculate-charges endpoint
-    ├── stream.py       # contains /stream-video endpoint
+    └── stream.py       # contains /stream-video endpoint
 ```
 **API Endpoints:**
 
